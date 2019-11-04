@@ -1,7 +1,7 @@
 # 选择JDK
 FROM openjdk:8u212-jre-slim-stretch
 VOLUME /tmp
-ADD target/samples-order-1.0.0-SNAPSHOT.jar app.jar
+ADD samples-order/target/samples-order-1.0.0-SNAPSHOT.jar app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS=""
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
