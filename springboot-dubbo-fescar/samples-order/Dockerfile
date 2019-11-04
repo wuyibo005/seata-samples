@@ -1,6 +1,7 @@
 # 选择JDK
 FROM openjdk:8u212-jre-slim-stretch
 VOLUME /tmp
+pwd
 ADD samples-order/target/samples-order-1.0.0-SNAPSHOT.jar app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS=""
