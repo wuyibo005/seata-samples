@@ -76,6 +76,16 @@ sh nacos-config.sh 192.168.21.89
 # 启动seata-server
 cd bin
 sh seata-server.sh -p 8091 -m file
+如果是部署在其他机器上需要制定机器IP地址
+nohup sh seata-server.sh -p 8091 -h 127.0.0.1 -m file &> seata.log &
+通过nohup命令让seata server在系统后台运行
+脚本参数：
+-p
+指定启动seata server的端口号。
+-h
+指定seata server所绑定的主机，这里配置要注意指定的主机IP要与业务服务内的配置文件保持一致，如：-h 192.168.1.10，业务服务配置文件内应该配置192.168.1.10，即使在同一台主机上也要保持一致。
+-m
+事务日志、事务执行信息存储的方式，目前支持file（文件方式）、db（数据库方式，建表语句请查看config/db_store.sql、config/db_undo_log.sql）
 ~~~
 
 ----------
